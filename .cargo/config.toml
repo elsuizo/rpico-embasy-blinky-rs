@@ -1,0 +1,11 @@
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+# this runner use the probe to download the code
+# runner = "probe-rs-cli run --chip RP2040"
+# this runner use elf2uf2-rs to download the code with BOOTSEL button
+runner = "elf2uf2-rs -d"
+
+[build]
+target = "thumbv6m-none-eabi"        # Cortex-M0 and Cortex-M0+
+
+[env]
+DEFMT_LOG = "debug"
